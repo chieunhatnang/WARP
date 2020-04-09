@@ -3,10 +3,11 @@ import json
 import datetime
 import random
 import string
+import time
 
-referrer = input("Nhập ID của bạn: ")
-timesToLoop = input("Nhập số GB muốn tăng: ")
-retryTimes = 5
+referrer = input("Enter ID")
+timesToLoop = input("Enter GB ")
+retryTimes = 5000
 print("Running with ID: " + referrer)
 
 def genString(stringLength):
@@ -54,6 +55,8 @@ for i in range(int(timesToLoop)):
                 break
             else:
                 print(i + 1, "Retry #" + str(r + 1), "Error")
+                print("Waiting 5 seconds before trying")
+                time.sleep(5)
                 if r == retryTimes - 1:
                     exit()
                     break
